@@ -2,7 +2,11 @@
 
 This project contains what's needed to build self-contained database based on MS SQL server Azure.
 
-This is for personnal **tests** only, the inserted **data will be lost once the container is stopped and removed**.
+## Disclaimer
+- This is for personnal **tests** only, the inserted **data will be lost once the container is stopped and removed**.
+- This contains code forwarding your choice about the Microsoft's licence (`ACCEPT_EULA` argument). Using it implies to conform to the underlying licence.
+
+## Principle
 
 THe docker file is composed of 3 phases :
  - The installation of `sqlcmd`
@@ -12,7 +16,7 @@ THe docker file is composed of 3 phases :
 ## build
 
 ```shell
-docker build . --progress=plain -t self-contained-mssql
+docker build . --build-arg="ACCEPT_EULA=1" --progress=plain -t self-contained-mssql
 ```
 
 The password can be customized using the `MSSQL_SA_PASSWORD` build argument. Beware of the MS policy regarding the passwords.
